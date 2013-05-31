@@ -18,7 +18,7 @@
 </head>
 <body>
 <section id = "wrapper" name="wrapper">
-  <%--@include file="cabecalho.jsp"--%>
+  <%@include file="cabecalho.jsp"%>
   <section id="conteudo">
     <section id="listaFuncionario">
       <table align="center">
