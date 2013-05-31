@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Cadastro de Funcionário</title>
+<title>Folha de Pagamento</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="css/bootstrap-responsive.css" rel="stylesheet" type="text/css">
@@ -22,7 +22,7 @@
     <section id="conteudo">
       <form id="form1" name="form1" method="post" action="/FuncionarioController" >
         <p>&nbsp;</p>
-        <p>Condeudo da tela principal vai Aki!</p>
+        <p>Condeudo da tela Folha de Pagamento vai Aki!</p>
         <p>&nbsp;</p>
       </form>
     </section>

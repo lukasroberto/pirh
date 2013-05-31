@@ -3,13 +3,12 @@
     Created on : 09/05/2013, 20:58:58
     Author     : Lukas
 --%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Alterar Funcion&aacute;rio</title>
+<title>Cadastro de Funcionário</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="css/bootstrap-responsive.css" rel="stylesheet" type="text/css">
@@ -19,21 +18,15 @@
 <body>
 <section id = "wrapper" name="wrapper">
   <%@include file="cabecalho.jsp"%>
-  
-  
 
-  
-  
-  
-  <section id="conteudo">
-    <form id="form1" name="form1" method="post" action="/FuncionarioController" >
+    <section id="conteudo">
+      <form id="form1" name="form1" method="post" action="/FuncionarioController" >
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
           <td colspan="2"><div id="subTituloConteudo">Cadastro de Funcionário</div></td>
         </tr>
         <tr>
-          <td>        
-          </td>
+          <td>&nbsp;</td>
           <td>&nbsp;</td>
         </tr>
         <tr>
@@ -41,13 +34,9 @@
           <td><div class="tipoDadosCadastro">Dados Pessoais</div></td>
         </tr>
         <tr>
-          <td><div id="descr">C&oacute;digo:</div></td>
-          <td><input name="nome2" type="text" class="texbox" id="nome2" value="${teste.nome}" size="30" maxlength="30" readonly></td>
-        </tr>
-     <tr>
           <td width="54"><div id="descr">Nome:</div></td>
           <td width="438"><input name="nome" type="text" class="texbox" id="nome" size="60" maxlength="60">
-          <input type="hidden" name="tipo" value="salvar"></td>
+            <input type="hidden" name="tipo" value="salvar"></td>
         </tr>
         <tr>
           <td><div id="descr">Sobrenome:</div></td>
@@ -81,7 +70,7 @@
           <td><div id="descr">Data de Admiss&atilde;o:</div></td>
           <td><input name="dataAdmissao" type="text" class="texbox" id="dataAdmissao"></td>
         </tr>
-        <tr>
+                <tr>
           <td><div id="descr">Jornada Mensal:</div></td>
           <td><input name="jornadaMensal" type="text" class="texbox" id="jornadaMensal"></td>
         </tr>
@@ -106,9 +95,9 @@
           <td>&nbsp;</td>
         </tr>
       </table>
-      
-    </form>
-  </section>
+      </form>
+    </section>
+
   <%@include file="rodape.jsp"%>
 </section>
 </body>

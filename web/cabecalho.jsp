@@ -1,8 +1,21 @@
+<link href="css/dropmenu.css" rel="stylesheet" type="text/css">
 <section id="cabecalho"><br>
-  Sistema de RH - JavaWeb </section>
-<nav class="btn-group" align="center">
-  <div class="btn"><a href="/FuncionarioController?tipo=salvar">Cadastrar Funcionários</a></div>
-  <div class="btn"><a href="/FuncionarioController?tipo=listar">Listar Funcionários</a></div>
-  <div class="btn"><a href="/FuncionarioController?tipo=deletar">Deletar Funcionários</a></div>
-  <div class="btn"><a href="/FuncionarioController?tipo=atualizar">Atualizar Funcionários</a></div> 
+  Sistema de RH - JavaWeb 
+</section>
+
+<nav>
+<div id="menu" class="container">
+  <ul class="dark_menu">
+   <li><a href="index.jsp">Principal</a></li>
+    <li><a href="FolhaPagamento.jsp">Folha de Pagamento</a></li>
+     <li><a href="Apontamento.jsp">Apontamentos</a></li>
+    <li><a href="#">Cadastrar Funcionários</a>
+      <ul>
+        <li><a href="/CadastrarFuncionario.jsp">Cadastrar Funcionários</a></li>
+        <li><a href="/FuncionarioController?tipo=editar">Editar Funcionários</a></li>
+      </ul>
+    </li>   
+</ul>
+
+</div>
 </nav>

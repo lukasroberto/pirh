@@ -13,6 +13,79 @@ public class Funcionario implements Serializable {
     private Long id;
     private String nome;
     private String cpf;
+    private String rg;
+    private String telefone;
+    private String endereco;
+    private String dataAdmissao;
+    private float jornadaMensal;
+    private int dependentesIRRF;
+    private int dependentesSalFamilia;
+    private float salBase;
+    private String sobrenome;
+
+    public String getRg() {
+        return rg;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getDataAdmissao() {
+        return dataAdmissao;
+    }
+
+    public void setDataAdmissao(String dataAdmissao) {
+        this.dataAdmissao = dataAdmissao;
+    }
+
+    public float getJornadaMensal() {
+        return jornadaMensal;
+    }
+
+    public void setJornadaMensal(float jornadaMensal) {
+        this.jornadaMensal = jornadaMensal;
+    }
+
+    public int getDependentesIRRF() {
+        return dependentesIRRF;
+    }
+
+    public void setDependentesIRRF(int dependentesIRRF) {
+        this.dependentesIRRF = dependentesIRRF;
+    }
+
+    public int getDependentesSalFamilia() {
+        return dependentesSalFamilia;
+    }
+
+    public void setDependentesSalFamilia(int dependentesSalFamilia) {
+        this.dependentesSalFamilia = dependentesSalFamilia;
+    }
+
+    public float getSalBase() {
+        return salBase;
+    }
+
+    public void setSalBase(float salBase) {
+        this.salBase = salBase;
+    }
 
     public String getSobrenome() {
         return sobrenome;
@@ -21,7 +94,10 @@ public class Funcionario implements Serializable {
     public void setSobrenome(String sobrenome) {
         this.sobrenome = sobrenome;
     }
-    private String sobrenome;
+
+
+    
+    
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -48,7 +124,7 @@ public class Funcionario implements Serializable {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-    
+
     @Override
     public String toString() {
         return "br.app.entidades.Funcionario[ id=" + id + " ]";

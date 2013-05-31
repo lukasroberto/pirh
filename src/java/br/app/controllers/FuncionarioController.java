@@ -22,10 +22,53 @@ public class FuncionarioController extends HttpServlet {
         String nome = request.getParameter("nome");
         String sobrenome = request.getParameter("sobrenome");
         String cpf = request.getParameter("cpf");
+        String rg = request.getParameter("rg");
+        String telefone = request.getParameter("telefone");
+        String endereco = request.getParameter("endereco");
+        String dataAdmissao = request.getParameter("dataAdmissao");
+        String jornadaMensal = request.getParameter("jornadaMensal");
+        String dependentesIRRF = request.getParameter("dependentesIRRF");
+        String dependentesSalFamilia = request.getParameter("dependentesSalFamilia");
+        String salBase = request.getParameter("salBase");
+        
         String tipo = request.getParameter("tipo");
 
+        
+        
+                if (tipo.equals("atualizar")) {
+            if (nome == null) {
+                //Listar
+                Funcionario funcionario = dao.find(Long.parseLong(id));
+                //Envia para JSP
+                request.setAttribute(
+                        "funcionarios", funcionario);
+                request.getRequestDispatcher(
+                        "AtualizarFuncionario.jsp").forward(request, response);
+            } else {
+                Funcionario alteraFuncionario = dao.find(Long.parseLong(id));
+                alteraFuncionario.setNome(nome.toString());
+                alteraFuncionario.setSobrenome(sobrenome.toString());
+                alteraFuncionario.setCpf(cpf.toString());
+                alteraFuncionario.setRg(rg);
+                alteraFuncionario.setTelefone(telefone);
+                alteraFuncionario.setEndereco(endereco);
+                alteraFuncionario.setDataAdmissao(dataAdmissao);
+                alteraFuncionario.setDependentesIRRF(Integer.parseInt(dependentesIRRF));
+                alteraFuncionario.setDependentesSalFamilia(Integer.parseInt(dependentesSalFamilia));
+                alteraFuncionario.setSalBase(Float.parseFloat(salBase));
+                dao.atualizar(alteraFuncionario);
 
-        if (tipo.equals("atualizar")) {
+                List<Funcionario> funcionario = dao.listar();
+                //Envia para JSP
+                request.setAttribute(
+                        "funcionarios", funcionario);
+                request.getRequestDispatcher(
+                        "EditarFuncionario.jsp").forward(request, response);
+            }
+        }
+        
+
+        if (tipo.equals("editar")) {
             if (id == null) {
                 //Listar
                 List<Funcionario> funcionario = dao.listar();
@@ -33,7 +76,7 @@ public class FuncionarioController extends HttpServlet {
                 request.setAttribute(
                         "funcionarios", funcionario);
                 request.getRequestDispatcher(
-                        "AtualizarFuncionario.jsp").forward(request, response);
+                        "EditarFuncionario.jsp").forward(request, response);
             } else {
                 Funcionario alteraFuncionario = dao.find(Long.parseLong(id));
                 alteraFuncionario.setNome(nome.toString());
@@ -46,7 +89,7 @@ public class FuncionarioController extends HttpServlet {
                 request.setAttribute(
                         "funcionarios", funcionario);
                 request.getRequestDispatcher(
-                        "AtualizarFuncionario.jsp").forward(request, response);
+                        "EditarFuncionario.jsp").forward(request, response);
             }
         }
 
@@ -68,6 +111,15 @@ public class FuncionarioController extends HttpServlet {
                 salvaFuncionario.setCpf(cpf);
                 salvaFuncionario.setNome(nome);
                 salvaFuncionario.setSobrenome(sobrenome);
+                salvaFuncionario.setRg(rg);
+                salvaFuncionario.setTelefone(telefone);
+                salvaFuncionario.setEndereco(endereco);
+                salvaFuncionario.setDataAdmissao(dataAdmissao);
+                salvaFuncionario.setJornadaMensal(Float.parseFloat(jornadaMensal));
+                salvaFuncionario.setDependentesIRRF(Integer.parseInt(dependentesIRRF));
+                salvaFuncionario.setDependentesSalFamilia(Integer.parseInt(dependentesSalFamilia));
+                salvaFuncionario.setSalBase(Float.parseFloat(salBase));
+    
                 //Salvar
                 dao.salvar(salvaFuncionario);
                 //Listar
@@ -91,7 +143,6 @@ public class FuncionarioController extends HttpServlet {
                 request.getRequestDispatcher(
                         "DeletarFuncionario.jsp").forward(request, response);
             } else {
-                System.out.println(id + "<<<<<<<<<<<<");
 
                 Funcionario deletaFuncionario = dao.find(Long.parseLong(id));
                 dao.deletar(deletaFuncionario);
@@ -102,7 +153,7 @@ public class FuncionarioController extends HttpServlet {
                 request.setAttribute(
                         "funcionarios", funcionario);
                 request.getRequestDispatcher(
-                        "DeletarFuncionario.jsp").forward(request, response);
+                        "EditarFuncionario.jsp").forward(request, response);
             }
         }
         if (tipo.equals("listar")) {
