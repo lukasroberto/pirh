@@ -4,9 +4,17 @@
         <servlet-name>FuncionarioController</servlet-name>
         <servlet-class>br.app.controllers.FuncionarioController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ParametrosController</servlet-name>
+        <servlet-class>br.app.controllers.ParametrosController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>FuncionarioController</servlet-name>
         <url-pattern>/FuncionarioController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ParametrosController</servlet-name>
+        <url-pattern>/ParametrosController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

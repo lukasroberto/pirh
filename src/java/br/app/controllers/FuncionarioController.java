@@ -1,6 +1,8 @@
 package br.app.controllers;
 
 import br.app.dao.FuncionarioDao;
+import br.app.dao.diasTrabalhadosDao;
+import br.app.entidades.DiasTrabalhados;
 import br.app.entidades.Funcionario;
 import java.io.IOException;
 import java.util.List;
@@ -30,12 +32,10 @@ public class FuncionarioController extends HttpServlet {
         String dependentesIRRF = request.getParameter("dependentesIRRF");
         String dependentesSalFamilia = request.getParameter("dependentesSalFamilia");
         String salBase = request.getParameter("salBase");
-        
+
         String tipo = request.getParameter("tipo");
 
-        
-        
-                if (tipo.equals("atualizar")) {
+        if (tipo.equals("atualizar")) {
             if (nome == null) {
                 //Listar
                 Funcionario funcionario = dao.find(Long.parseLong(id));
@@ -66,7 +66,7 @@ public class FuncionarioController extends HttpServlet {
                         "EditarFuncionario.jsp").forward(request, response);
             }
         }
-        
+
 
         if (tipo.equals("editar")) {
             if (id == null) {
@@ -119,7 +119,7 @@ public class FuncionarioController extends HttpServlet {
                 salvaFuncionario.setDependentesIRRF(Integer.parseInt(dependentesIRRF));
                 salvaFuncionario.setDependentesSalFamilia(Integer.parseInt(dependentesSalFamilia));
                 salvaFuncionario.setSalBase(Float.parseFloat(salBase));
-    
+
                 //Salvar
                 dao.salvar(salvaFuncionario);
                 //Listar

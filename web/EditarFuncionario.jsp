@@ -11,9 +11,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Atualizar Funcionário</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="css/bootstrap-responsive.css" rel="stylesheet" type="text/css">
-<link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
 <link href="css/css.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -21,39 +18,38 @@
   <%@include file="cabecalho.jsp"%>
   <section id="conteudo">
     <section id="listaFuncionario">
-      <table align="center">
+    <div id="subTituloConteudo">Editar Funcion&aacute;rio</div>
+      <table width="100%" align="center">
         <tr>
-          <th colspan="8"><div id="subTituloConteudo">Editar Funcion&aacute;rio</div></th>
+          <th colspan="8"></th>
         </tr>
-        <tr>
-          <th colspan="8">&nbsp;</th>
+        <tr class="topoColunas">
+          <th height="32" class="topoColunasEsquerdo">C&oacute;digo</th>
+          <th>Nome Completo</th>
+          <th>CPF</th>
+          <th>Telefone</th>
+          <th>Endereço</th>
+          <th colspan="2" class="topoColunasAção">Ação</th>
         </tr>
-        <tr>
-          <th width="170">C&oacute;digo</th>
-          <th width="261">Nome Completo</th>
-          <th width="173">CPF</th>
-          <th width="173">RG</th>
-          <th width="173">Telefone</th>
-          <th width="173">Endereço</th>
-          <th width="173">Admissão</th>
-          <th width="173">Sal. Base</th>
-        </tr>
-        
-        <c:forEach items="${funcionarios}" var="funcionario">
-          <tr>
+
+        <c:forEach items="${funcionarios}" var="funcionario" varStatus ="row">
+          <c:choose>
+            <c:when test="${row.count % 2 == 0}">
+              <c:set var="estiloLinha" value="odd"  />
+            </c:when>
+            <c:otherwise>
+              <c:set var="estiloLinha" value="even"  />
+            </c:otherwise>
+          </c:choose>
+          <tr class="${estiloLinha}">
             <td>${funcionario.id}</td>
-            <td width="261">${funcionario.nome} ${funcionario.sobrenome}</td>
-            <td width="173">${funcionario.cpf}</td>
-            <td width="173">${funcionario.rg}</td>
-            <td width="173">${funcionario.telefone}</td>
-            <td width="173">${funcionario.endereco}</td>
-            <td width="173">${funcionario.dataAdmissao}</td>
-            <td width="173">${funcionario.salBase}</td>
-            <td width="57"><a href="/FuncionarioController?tipo=atualizar&id=${funcionario.id}">Alterar</a></td>
-            <td width="57"><a href="/FuncionarioController?tipo=deletar&id=${funcionario.id}">Deletar</a></td>
+            <td>${funcionario.nome} ${funcionario.sobrenome}</td>
+            <td>${funcionario.cpf}</td>
+            <td>${funcionario.telefone}</td>
+            <td>${funcionario.endereco}</td>
+            <td width="30"><a href="/FuncionarioController?tipo=atualizar&id=${funcionario.id}"><img src="img/icons/editar.png" alt="Editar"></a></td>
+            <td width="30"><a href="/FuncionarioController?tipo=deletar&id=${funcionario.id}"><img src="img/icons/excluir.png" alt="Excluir"></a></td>
           </tr>
-            </form>
-          
         </c:forEach>
       </table>
     </section>

@@ -10,6 +10,8 @@ import javax.persistence.Id;
 public class Funcionario implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nome;
     private String cpf;
@@ -95,12 +97,6 @@ public class Funcionario implements Serializable {
         this.sobrenome = sobrenome;
     }
 
-
-    
-    
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }

@@ -1,6 +1,7 @@
 package br.app.dao;
 
 import br.app.entidades.Funcionario;
+import br.app.entidades.Irrf;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -19,6 +20,12 @@ public class FuncionarioDao {
     public void salvar(Funcionario funcionario) {
         entityManager.getTransaction().begin();
         entityManager.persist(funcionario);
+        entityManager.getTransaction().commit();
+
+    }
+        public void salvarIrrf(Irrf irrf) {
+        entityManager.getTransaction().begin();
+        entityManager.persist(irrf);
         entityManager.getTransaction().commit();
 
     }

@@ -4,4 +4,5 @@
   <Resource auth="Container" factory="org.jboss.weld.resources.ManagerObjectFactory" name="BeanManager" type="javax.enterprise.inject.spi.BeanManager"/>
   <WatchedResource>WEB-INF/web.xml</WatchedResource>
   <WatchedResource>META-INF/context.xml</WatchedResource>
+  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="20" maxIdle="10" maxWait="-1" name="pirh" password="" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/pirh" username="root"/>
 </Context>
